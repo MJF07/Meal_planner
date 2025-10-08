@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <title>Cookbook</title>
+
+  <style>
+
+    html, body { height:100%; margin:0; }
+
+    body { background:#4d799b; position:relative; }
+
+
+
+    .gwd-label-1f6w {
+
+      position:absolute; left:50%; top:0;
+
+      transform:translateX(-50%) translateY(20px);
+
+      width:1050px; height:96px; text-align:center;
+
+      font: 700 70px "Arial Black", Arial, sans-serif;
+
+      background:#b76464;
+
+    }
+
+
+
+    /* Keep your absolute positions but without 3D */
+
+    .gwd-button-14wo, .gwd-button-1oqy,
+
+    .gwd-button-j9fy, .gwd-button-1ql8 {
+
+      position:absolute; left:50%; top:50%;
+
+      height:46px; border:1px solid #000; cursor:pointer; z-index:10;
+
+    }
+
+
+
+    .gwd-button-14wo { width:385px; background:#cea62c; text-align:left; transform:translate(-50%,-50%); }
+
+    .gwd-button-1oqy { width:385px; background:#2cce83; transform:translate(-50%,-50%) translateY(348px); }
+
+    .gwd-button-j9fy { width:235px; background:#a668d8; font: 700 23px "Arial Black", Arial, sans-serif; transform:translate(-50%,-50%) translateX(350px) translateY(-100px); }
+
+    .gwd-button-1ql8 { width:235px; background:#5d7898; color:#fff; font: 700 23px "Arial Black", Arial, sans-serif; transform:translate(-50%,-50%) translateX(-350px) translateY(-100px); }
+
+  </style>
+
+</head>
+
+<body class="htmlNoPages">
+
+  <label id="label_1" class="gwd-label-1f6w">Cookbook</label>
+
+
+
+  <form action="/cookbook" method="post">
+
+    <button id="button_1" class="gwd-button-1oqy" type="submit">Add Recipe</button>
+
+    <button id="button_3" class="gwd-button-14wo" type="submit">Name goes here</button>
+
+    <button id="button_2" class="gwd-button-j9fy" type="submit">Add to plan</button>
+
+  </form>
+
+
+
+  <form action="/home" method="get">
+
+    <button id="button_4" class="gwd-button-1ql8" type="submit">Home</button>
+
+  </form>
+
+</body>
+
+</html>

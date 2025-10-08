@@ -20,8 +20,47 @@ def login():
         for row in reader:
             if row['username'] == username and row['password'] == password:
                 print("ok")
-                return "<h2>Access granted</h2>"
+                return render_template('home.html')
             else:
                 return "<h2>Access denied</h2>", 401
+
+@app.route("/account_create")
+def account_create():
+    return render_template("account_create.html")
+@app.route("/home")
+def home():
+    return render_template("home.html")
+@app.route("/cookbook")
+def cookbook():
+    return render_template("cookbook.html")
+@app.route("/meal_plan",methods=["POST","GET"])
+def meal_plan():
+    return render_template("meal_plan.html")
+@app.route("/meal_requests")
+def meal_requests():
+    return render_template("meal_requests.html")
+
+
+
+@app.route("/registration", methods=["POST"])
+def registration():
+    email = request.form.get("email")
+    username = request.form.get("username")
+    password = request.form.get("password")
+    confirm_password = request.form.get("confirm_password")
+
+    with open("users2.csv", mode="a", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+        writer.writerow([email,username,password,confirm_password])  # writes all rows at once
+
+    print("users.csv written successfully!")
+    print(email)
+    print(username)
+    print(password)
+    print(confirm_password)
+    return render_template("confirmation.html")
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)

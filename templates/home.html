@@ -6,94 +6,301 @@
   <title>undefined</title>
   <meta name="generator" content="Google Web Designer 16.4.0.0711">
   <style id="gwd-text-style">
-    p {
-      margin: 0px;
-    }
-    h1 {
-      margin: 0px;
-    }
-    h2 {
-      margin: 0px;
-    }
-    h3 {
-      margin: 0px;
-    }
-  </style>
-  <style>
-    html, body {
-      width: 100%;
-      height: 100%;
-      margin: 0px;
+   :root {
+
+      --bg: #f7f7f8;
+
+      --card: #ffffff;
+
+      --text: #0f172a;
+
+      --muted: #475569;
+
+      --primary: #2563eb;
+
+      --primary-press: #1d4ed8;
+
+      --border: #e5e7eb;
+
+      --radius: 16px;
+
+      --shadow: 0 6px 24px rgba(0,0,0,0.08);
+ html, body { margin: 0; height: 100%; }
+
+    body {
+
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+      color: var(--text);
+
+      background: var(--bg);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 24px;
+
     }
     body {
-      transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-      transform-style: preserve-3d;
-      background-image: none;
-      background-color: rgb(77, 121, 155);
+
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+      color: var(--text);
+
+      background: var(--bg);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 24px;
+
     }
-    body * {
-      transform-style: preserve-3d;
+
+    .wrap {
+
+      width: 100%;
+
+      max-width: 720px;
+
     }
-    .gwd-label-d6lg {
-      position: absolute;
-      text-align: center;
-      font-family: "Arial Black";
-      background-image: none;
-      width: 1029px;
-      line-height: normal;
-      font-size: 50px;
-      height: 75px;
-      background-color: rgb(113, 216, 55);
-      top: 31px;
-      left: 135px;
+
+    header {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-bottom: 16px;
+
     }
+    .title {
+
+      font-size: clamp(1.5rem, 2.5vw + 1rem, 2.25rem);
+
+      font-weight: 800;
+
+      letter-spacing: 0.2px;
+
+    }
+      .wrap {
+
+      width: 100%;
+
+      max-width: 720px;
+
+    }
+
+    header {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-bottom: 16px;
+
+    }
+
+    .title {
+
+      font-size: clamp(1.5rem, 2.5vw + 1rem, 2.25rem);
+
+      font-weight: 800;
+
+      letter-spacing: 0.2px;
+
+    }
+
+    .card {
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      padding: 20px;
+
+      box-shadow: var(--shadow);
+
+    }
+
+    .muted { color: var(--muted); margin-top: 4px; }
+
+
+
+    .actions {
+
+      display: flex;
+
+      gap: 12px;
+
+      flex-wrap: wrap;
+
+      margin-top: 16px;
+
+    }
+
     .gwd-button-1php {
-      position: absolute;
-      font-family: "Arial Black";
-      background-image: none;
-      left: 516px;
-      top: 275px;
-      background-color: rgb(63, 105, 213);
-      font-size: 30px;
-      width: 250px;
-      height: 75px;
+       display: block;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 8px;
+
+      height: 46px;
+
+      padding: 0 16px;
+
+      font-weight: 600;
+
+      line-height: 1;
+
+      border-radius: 12px;
+
+      border: 1px solid transparent;
+
+      cursor: pointer;
+
+      text-decoration: none;
+
+      user-select: none;
+
+      transition: transform 0.02s ease-in-out, background 0.15s, border-color 0.15s;
+
     }
     .gwd-button-fwmq {
-      position: absolute;
-      font-family: "Arial Black";
-      background-image: none;
-      left: 516px;
-      font-size: 30px;
-      background-color: rgb(151, 209, 225);
-      top: 365px;
-      width: 250px;
-      height: 75px;
+       display: block;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 8px;
+
+      height: 46px;
+
+      padding: 0 16px;
+
+      font-weight: 600;
+
+      line-height: 1;
+
+      border-radius: 12px;
+
+      border: 1px solid transparent;
+
+      cursor: pointer;
+
+      text-decoration: none;
+
+      user-select: none;
+
+      transition: transform 0.02s ease-in-out, background 0.15s, border-color 0.15s;
     }
     .gwd-button-1evm {
-      position: absolute;
-      font-family: "Arial Black";
-      background-image: none;
-      left: 516px;
-      top: 465px;
-      height: 75px;
-      width: 250px;
-      font-size: 28px;
-      line-height: 35px;
-      background-color: rgb(147, 118, 194);
+       display: block;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 8px;
+
+      height: 46px;
+
+      padding: 0 16px;
+
+      font-weight: 600;
+
+      line-height: 1;
+
+      border-radius: 12px;
+
+      border: 1px solid transparent;
+
+      cursor: pointer;
+
+      text-decoration: none;
+
+      user-select: none;
+
+      transition: transform 0.02s ease-in-out, background 0.15s, border-color 0.15s;
     }
+     button:active, .btn:active { transform: translateY(1px); }
+
+
+
+
+    .gwd-button-1evm{
+
+      background: #C098D6;
+
+      color: var(--text);
+
+      border-color: var(--border);
+
+    }
+
+    .gwd-button-1evm:hover { background: var(--primary-press); }
+
+
+
+    .gwd-button-fwmq {
+
+      background: #D3D3D3;
+
+      color: var(--text);
+
+      border-color: var(--border);
+
+    }
+
+    .gwd-button-fwmq:hover { border-color: #cbd5e1; }
+
+    .gwd-button-1php {
+
+      background: #FF8B3D;
+
+      color: var(--text);
+
+      border-color: var(--border);
+
+    }
+
+    .gwd-button-1php:hover { border-color: #cbd5e1; }
+
+
   </style>
 </head>
 
 <body class="htmlNoPages">
   <label id="label_1" class="gwd-label-d6lg">Home</label>
     <form action="/home" method="post" >
-  <button id="button_3" class="gwd-button-1evm">Meal Requests</button>
-  <button id="button_2" class="gwd-button-fwmq">Meal Plan</button>
+
 </form>
 <form action="/cookbook">
   <button id="button_1" class="gwd-button-1php">Cook Book</button>
+</form>
 
+<form action="/meal_plan">
+  <button id="button_2" class="gwd-button-fwmq">Meal Plan</button>
+</form>
 
+<form action="/meal_requests">
+  <button id="button_3" class="gwd-button-1evm">Meal Requests</button>
+</form>
 
 </body>
 

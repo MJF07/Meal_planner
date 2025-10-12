@@ -1,124 +1,235 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
+
+  <meta charset="utf-8" />
+
   <title>Meal Requests</title>
-  <meta name="generator" content="Google Web Designer 16.4.0.0711">
-  <style id="gwd-text-style">
-    p {
-      margin: 0px;
-    }
-    h1 {
-      margin: 0px;
-    }
-    h2 {
-      margin: 0px;
-    }
-    h3 {
-      margin: 0px;
-    }
-  </style>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
-    html, body {
-      width: 100%;
-      height: 100%;
-      margin: 0px;
+
+    :root {
+
+      --bg: #f7f7f8;
+
+      --card: #ffffff;
+
+      --text: #0f172a;
+
+      --muted: #475569;
+
+      --primary: #2563eb;
+
+      --primary-press: #1d4ed8;
+
+      --border: #e5e7eb;
+
+      --radius: 16px;
+
+      --shadow: 0 6px 24px rgba(0,0,0,0.08);
+
     }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; height: 100%; }
+
     body {
-      transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-      transform-style: preserve-3d;
-      background-image: none;
-      background-color: rgb(77, 121, 155);
+
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+      color: var(--text);
+
+      background: var(--bg);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 24px;
+
     }
-    body * {
-      transform-style: preserve-3d;
+
+    .wrap {
+
+      width: 100%;
+
+      max-width: 720px;
+
     }
-    .gwd-label-1f6w {
-      position: absolute;
-      text-align: center;
-      font-family: "Arial Black";
-      font-size: 70px;
-      height: 96px;
-      width: 1050px;
-      left: 50%;
-      top: 0px;
-      transform: translate(-50%, 0%) translate3d(0px, 20px, 0px);
-      background-image: none;
-      background-color: rgb(100, 183, 100);
+
+    header {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-bottom: 16px;
+
     }
-    .gwd-button-1oqy {
-      position: absolute;
-      background-image: none;
-      background-color: rgb(44, 206, 131);
-      border-image-source: none;
-      border-image-width: 1;
-      border-image-outset: 0;
-      border-image-repeat: stretch;
-      border-color: rgb(0, 0, 0);
-      left: 50%;
-      top: 50%;
-      height: 46px;
-      width: 385px;
-      transform: translate(-50%, -50%) translate3d(0px, 348px, 0px);
+
+    .title {
+
+      font-size: clamp(1.5rem, 2.5vw + 1rem, 2.25rem);
+
+      font-weight: 800;
+
+      letter-spacing: 0.2px;
+
     }
-    .gwd-button-1ql8 {
-      position: absolute;
-      background-image: none;
-      border-image-source: none;
-      border-image-width: 1;
-      border-image-outset: 0;
-      border-image-repeat: stretch;
-      border-color: rgb(0, 0, 0);
-      left: 50%;
-      top: 50%;
-      height: 46px;
-      width: 235px;
-      background-color: rgb(93, 120, 152);
-      font-size: 23px;
-      font-family: "Arial Black";
-      transform: translate(-50%, -50%) translate3d(-350px, -100px, 0px);
+
+    .card {
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      padding: 20px;
+
+      box-shadow: var(--shadow);
+
     }
+
+    .muted { color: var(--muted); margin-top: 4px; }
+
+
+
+    .actions {
+
+      display: flex;
+
+      gap: 12px;
+
+      flex-wrap: wrap;
+
+      margin-top: 16px;
+
+    }
+
+    button, .btn {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 8px;
+
+      height: 44px;
+
+      padding: 0 16px;
+
+      font-weight: 600;
+
+      line-height: 1;
+
+      border-radius: 12px;
+
+      border: 1px solid transparent;
+
+      cursor: pointer;
+
+      text-decoration: none;
+
+      user-select: none;
+
+      transition: transform 0.02s ease-in-out, background 0.15s, border-color 0.15s;
+
+    }
+
+    button:active, .btn:active { transform: translateY(1px); }
+
+
+
+    .btn-primary {
+
+      background: var(--primary);
+
+      color: #fff;
+
+      border-color: var(--primary);
+
+    }
+
+    .btn-primary:hover { background: var(--primary-press); }
+
+
+
+    .btn-ghost {
+
+      background: #D3D3D3;
+
+      color: var(--text);
+
+      border-color: var(--border);
+
+    }
+
+    .btn-ghost:hover { border-color: #cbd5e1; }
+
+
+
+    /* Make forms sit inline nicely */
+
+    form.inline { display: inline; }
+
   </style>
+
 </head>
-<style>
 
-  /* Turn off all transforms everywhere */
+<body>
 
-  html, body, body * {
+  <div class="wrap">
 
-    transform: none !important;
+    <header>
 
-    transform-style: flat !important;
+      <div class="title">Meal Requests</div>
 
-    perspective: none !important;
 
-    -webkit-transform: none !important;
+      <form class="inline" action="/home" method="get">
 
-    -webkit-transform-style: flat !important;
+        <button type="submit" class="btn btn-ghost" aria-label="Go Home">Home</button>
 
-    -webkit-perspective: none !important;
+      </form>
 
-  }
+    </header>
 
 
 
-  /* Optional: ensure your buttons sit on top if something had z-index issues */
+    <div class="card">
 
-  .gwd-button-1oqy, .gwd-button-14wo, .gwd-button-j9fy, .gwd-button-1ql8 { z-index: 10 !important; }
+      <p class="muted">
 
-</style>
+        Submit a new recipe request for the meal plan. Click the button below to start.
 
-<body class="htmlNoPages">
-<form action="/meal_requests" method="post">
-  <label id="label_1" class="gwd-label-1f6w">Meal Requests</label>
-  <button id="button_1" class="gwd-button-1oqy">Add Recipe</button>
- </form>
+      </p>
+
+
+
+      <!-- This keeps your existing POST /meal_requests action -->
+
+      <form action="/meal_requests" method="post" class="actions">
+
+        <button type="submit" class="btn btn-primary">Add Recipe</button>
+
+      </form>
+
+    </div>
+
+  </div>
 
 </body>
-<form action="/home" method="get">
 
-    <button id="button_4" class="gwd-button-1ql8" type="submit">Home</button>
-
-  </form>
 </html>
+

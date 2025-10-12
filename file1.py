@@ -49,9 +49,9 @@ def registration():
     password = request.form.get("password")
     confirm_password = request.form.get("confirm_password")
 
-    with open("users2.csv", mode="a", newline="", encoding="utf-8") as file:
+    with open("users.csv", mode="a", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
-        writer.writerow([email,username,password,confirm_password])  # writes all rows at once
+        writer.writerow(["\n",username,password,email])  # writes all rows at once
 
     print("users.csv written successfully!")
     print(email)

@@ -1,87 +1,235 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
 <head>
 
   <meta charset="utf-8" />
 
-  <title>Cookbook</title>
+  <title>Meal Plan</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
 
-    html, body { height:100%; margin:0; }
+    :root {
 
-    body { background:#4d799b; position:relative; }
+      --bg: #f7f7f8;
 
+      --card: #ffffff;
 
+      --text: #0f172a;
 
-    .gwd-label-1f6w {
+      --muted: #475569;
 
-      position:absolute; left:50%; top:0;
+      --primary: #2563eb;
 
-      transform:translateX(-50%) translateY(20px);
+      --primary-press: #1d4ed8;
 
-      width:1050px; height:96px; text-align:center;
+      --border: #e5e7eb;
 
-      font: 700 70px "Arial Black", Arial, sans-serif;
+      --radius: 16px;
 
-      background:#b76464;
-
-    }
-
-
-
-    /* Keep your absolute positions but without 3D */
-
-    .gwd-button-14wo, .gwd-button-1oqy,
-
-    .gwd-button-j9fy, .gwd-button-1ql8 {
-
-      position:absolute; left:50%; top:50%;
-
-      height:46px; border:1px solid #000; cursor:pointer; z-index:10;
+      --shadow: 0 6px 24px rgba(0,0,0,0.08);
 
     }
 
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; height: 100%; }
+
+    body {
+
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+      color: var(--text);
+
+      background: var(--bg);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 24px;
+
+    }
+
+    .wrap {
+
+      width: 100%;
+
+      max-width: 720px;
+
+    }
+
+    header {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-bottom: 16px;
+
+    }
+
+    .title {
+
+      font-size: clamp(1.5rem, 2.5vw + 1rem, 2.25rem);
+
+      font-weight: 800;
+
+      letter-spacing: 0.2px;
+
+    }
+
+    .card {
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      padding: 20px;
+
+      box-shadow: var(--shadow);
+
+    }
+
+    .muted { color: var(--muted); margin-top: 4px; }
 
 
-    .gwd-button-14wo { width:385px; background:#cea62c; text-align:left; transform:translate(-50%,-50%); }
 
-    .gwd-button-1oqy { width:385px; background:#2cce83; transform:translate(-50%,-50%) translateY(348px); }
+    .actions {
 
-    .gwd-button-j9fy { width:235px; background:#a668d8; font: 700 23px "Arial Black", Arial, sans-serif; transform:translate(-50%,-50%) translateX(350px) translateY(-100px); }
+      display: flex;
 
-    .gwd-button-1ql8 { width:235px; background:#5d7898; color:#fff; font: 700 23px "Arial Black", Arial, sans-serif; transform:translate(-50%,-50%) translateX(-350px) translateY(-100px); }
+      gap: 12px;
+
+      flex-wrap: wrap;
+
+      margin-top: 16px;
+
+    }
+
+    button, .btn {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 8px;
+
+      height: 44px;
+
+      padding: 0 16px;
+
+      font-weight: 600;
+
+      line-height: 1;
+
+      border-radius: 12px;
+
+      border: 1px solid transparent;
+
+      cursor: pointer;
+
+      text-decoration: none;
+
+      user-select: none;
+
+      transition: transform 0.02s ease-in-out, background 0.15s, border-color 0.15s;
+
+    }
+
+    button:active, .btn:active { transform: translateY(1px); }
+
+
+
+    .btn-primary {
+
+      background: var(--primary);
+
+      color: #fff;
+
+      border-color: var(--primary);
+
+    }
+
+    .btn-primary:hover { background: var(--primary-press); }
+
+
+
+    .btn-ghost {
+
+      background: #D3D3D3;
+
+      color: var(--text);
+
+      border-color: var(--border);
+
+    }
+
+    .btn-ghost:hover { border-color: #cbd5e1; }
+
+
+
+    /* Make forms sit inline nicely */
+
+    form.inline { display: inline; }
 
   </style>
 
 </head>
 
-<body class="htmlNoPages">
+<body>
 
-  <label id="label_1" class="gwd-label-1f6w">Cookbook</label>
+  <div class="wrap">
 
+    <header>
 
-
-  <form action="/cookbook" method="post">
-
-    <button id="button_1" class="gwd-button-1oqy" type="submit">Add Recipe</button>
-
-    <button id="button_3" class="gwd-button-14wo" type="submit">Name goes here</button>
-
-    <button id="button_2" class="gwd-button-j9fy" type="submit">Add to plan</button>
-
-  </form>
+      <div class="title">Meal Plan</div>
 
 
+      <form class="inline" action="/home" method="get">
 
-  <form action="/home" method="get">
+        <button type="submit" class="btn btn-ghost" aria-label="Go Home">Home</button>
 
-    <button id="button_4" class="gwd-button-1ql8" type="submit">Home</button>
+      </form>
 
-  </form>
+    </header>
+
+
+
+    <div class="card">
+
+      <p class="muted">
+
+        Begin a new meal plan. Click the button below to start.
+
+      </p>
+
+
+
+      <!-- This keeps your existing POST /meal_requests action -->
+
+      <form action="/meal_plan" method="post" class="actions">
+
+        <button type="submit" class="btn btn-primary">Add plan</button>
+
+      </form>
+
+    </div>
+
+  </div>
 
 </body>
 
 </html>
+

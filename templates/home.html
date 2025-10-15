@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>undefined</title>
-  <meta name="generator" content="Google Web Designer 16.4.0.0711">
-  <style id="gwd-text-style">
-   :root {
+
+  <meta charset="utf-8" />
+
+  <title>Home</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+
+    :root {
 
       --bg: #f7f7f8;
 
@@ -25,25 +31,13 @@
       --radius: 16px;
 
       --shadow: 0 6px 24px rgba(0,0,0,0.08);
- html, body { margin: 0; height: 100%; }
-
-    body {
-
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-
-      color: var(--text);
-
-      background: var(--bg);
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      padding: 24px;
 
     }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; height: 100%; }
+
     body {
 
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
@@ -72,37 +66,9 @@
 
     header {
 
-      display: flex;
+      display: block;
 
-      align-items: center;
-
-      justify-content: space-between;
-
-      margin-bottom: 16px;
-
-    }
-    .title {
-
-      font-size: clamp(1.5rem, 2.5vw + 1rem, 2.25rem);
-
-      font-weight: 800;
-
-      letter-spacing: 0.2px;
-
-    }
-      .wrap {
-
-      width: 100%;
-
-      max-width: 720px;
-
-    }
-
-    header {
-
-      display: flex;
-
-      align-items: center;
+      align-items: top;
 
       justify-content: space-between;
 
@@ -112,7 +78,9 @@
 
     .title {
 
+
       font-size: clamp(1.5rem, 2.5vw + 1rem, 2.25rem);
+
 
       font-weight: 800;
 
@@ -150,8 +118,9 @@
 
     }
 
+
     .gwd-button-1php {
-       display: block;
+       display: inline-flex;
 
       align-items: center;
 
@@ -181,7 +150,7 @@
 
     }
     .gwd-button-fwmq {
-       display: block;
+       display: inline-flex;
 
       align-items: center;
 
@@ -210,7 +179,7 @@
       transition: transform 0.02s ease-in-out, background 0.15s, border-color 0.15s;
     }
     .gwd-button-1evm {
-       display: block;
+       display: inline-flex;
 
       align-items: center;
 
@@ -267,7 +236,7 @@
 
     }
 
-    .gwd-button-fwmq:hover { border-color: #cbd5e1; }
+    .gwd-button-fwmq:hover { background: var(--primary-press); }
 
     .gwd-button-1php {
 
@@ -279,14 +248,15 @@
 
     }
 
-    .gwd-button-1php:hover { border-color: #cbd5e1; }
+    .gwd-button-1php:hover { background: var(--primary-press); }
 
 
   </style>
 </head>
 
 <body class="htmlNoPages">
-  <label id="label_1" class="gwd-label-d6lg">Home</label>
+
+  <label style="font-size: 102px;">Home</label>
     <form action="/home" method="post" >
 
 </form>
@@ -295,7 +265,9 @@
 </form>
 
 <form action="/meal_plan">
+  <body style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
   <button id="button_2" class="gwd-button-fwmq">Meal Plan</button>
+
 </form>
 
 <form action="/meal_requests">

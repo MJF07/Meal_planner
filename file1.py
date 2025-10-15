@@ -15,14 +15,15 @@ def login():
 
     print("Username", username)
     print("Password", password)
-    with open(USERS_CSV, newline='', encoding="utf-8") as list:
-        reader = csv.DictReader(list)
+    with open("users.csv", mode='r', encoding="utf-8") as file:
+        reader = csv.DictReader(file)
         for row in reader:
+            print(row)
             if row['username'] == username and row['password'] == password:
                 print("ok")
                 return render_template('home.html')
-            else:
-                return "<h2>Access denied</h2>", 401
+
+    return render_template('index.html')
 
 @app.route("/account_create")
 def account_create():
@@ -51,7 +52,7 @@ def registration():
 
     with open("users.csv", mode="a", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
-        writer.writerow(["\n",username,password,email])  # writes all rows at once
+        writer.writerow([username,password,email])  # writes all rows at once
 
     print("users.csv written successfully!")
     print(email)

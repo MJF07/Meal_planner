@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>{{ meal.name }} • Meal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { --bg:#f7f7f8; --card:#fff; --text:#0f172a; --muted:#475569; --border:#e5e7eb; --radius:14px; --shadow:0 6px 18px rgba(0,0,0,.06); --primary:#2563eb; }
+    * { box-sizing: border-box }
+    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--text); background:var(--bg) }
+    .wrap { max-width:820px; margin:40px auto; padding:0 16px }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin-bottom:16px }
+    .top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px }
+    .back { text-decoration:none; color:var(--primary); font-weight:600 }
+    h1 { margin:0; font-size:clamp(1.6rem,2.5vw+1rem,2.2rem) }
+    .meta { color:var(--muted) }
+
+    .hero {
+      width:100%; aspect-ratio: 16 / 9; border:1px dashed var(--border); border-radius:12px;
+      display:grid; place-items:center; background:#fff; overflow:hidden;
+    }
+    .hero img { width:100%; height:100%; object-fit:cover; display:block }
+    .placeholder { color:var(--muted); font-size:.95rem }
+
+    article.recipe { line-height:1.6 }
+    article.recipe pre { white-space: pre-wrap; font-family: ui-sans-serif, system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top">
+      <a class="back" href="{{ url_for('meals') }}">&larr; Back to meals</a>
+      <div class="meta">Prep {{ meal.prep or 0 }}m • Cook {{ meal.cook or 0 }}m</div>
+    </div>
+
+    <section class="card">
+      <h1>{{ meal.name }}</h1>
+      <div class="hero" aria-label="Meal image">
+        {% if image_url %}
+          <img src="{{ image_url }}" alt="Photo of {{ meal.name }}">
+        {% else %}
+          <div class="placeholder">No image yet</div>
+        {% endif %}
+      </div>
+      <div style="margin-top:10px; display:flex; gap:8px">
+      <form action="{{ url_for('save_photo',idx=idx) }}" method="post">
+      <button class="btn" type="submit">Add Image</button>
+
+      </div>
+    </form>
+    </section>
+
+    <section class="card">
+  <h2 style="margin:0 0 12px; font-size:1.1rem; color:var(--muted)">Recipe</h2>
+  <form action="{{ url_for('meal_save_recipe', idx=idx) }}" method="post">
+    <label for="recipe" style="display:block; font-weight:600; margin:0 0 6px">Edit recipe</label>
+    <textarea id="recipe" name="recipe" rows="12" style="
+      width:100%; border:1px solid var(--border); border-radius:10px; padding:12px;
+      font: 14px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">
+{{ recipe_text }}</textarea>
+    <div style="margin-top:10px; display:flex; gap:8px">
+      <button class="btn" type="submit">Save</button>
+      <a class="back" href="{{ url_for('meals') }}" style="align-self:center; text-decoration:none">Cancel</a>
+    </div>
+  </form>
+</section>
+  </main>
+</body>
+</html>

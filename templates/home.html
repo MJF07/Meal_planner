@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { --bg:#f7f7f8; --card:#fff; --text:#0f172a; --muted:#475569; --border:#e5e7eb; --radius:16px; --shadow:0 6px 24px rgba(0,0,0,.08); --primary:#2563eb; --primary-press:#1d4ed8; }
+    *{box-sizing:border-box} html,body{margin:0;height:100%}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px}
+    .wrap{width:100%;max-width:720px}
+    .title {
+  font-size: clamp(1.5rem, 2.5vw + 1rem, 2.25rem);
+  font-weight: 800;
+  margin: 0 0 16px;
+  text-align: center; /* centers the title text */
+}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+      .card {
+  text-align: center;
+}
+    .muted{color:var(--muted);margin:0 0 16px}
+
+    /* Modified section */
+    .actions{
+      display: flex;
+      flex-direction: column;  /* stack vertically */
+      align-items: center;     /* center horizontally */
+      gap: 12px;               /* space between buttons */
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      height:44px;
+      padding:0 16px;
+      font-weight:600;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#fff;
+      text-decoration:none;
+      color:var(--text);
+      width:200px; /* optional: equal width buttons */
+    }
+    .btn:hover{border-color:#cbd5e1}
+    .btn-accent{background:#FF8B3D}
+    .btn-gray{background:#D3D3D3}
+    .btn-lilac{background:#C098D6}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1 class="title">Home</h1>
+    <section class="card">
+      <p class="muted">Choose where you want to go:</p>
+      <div class="actions">
+        <a class="btn btn-accent" href="/cookbook">Cook Book</a>
+        <a class="btn btn-gray"   href="/meal_plan">Meal Plan</a>
+        <a class="btn btn-lilac"  href="/meal_requests">Meal Requests</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

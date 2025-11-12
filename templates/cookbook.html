@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Cook Book</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { --bg:#f7f7f8; --card:#fff; --text:#0f172a; --muted:#475569; --border:#e5e7eb; --radius:14px; --shadow:0 6px 18px rgba(0,0,0,.06); --primary:#2563eb; }
+    * { box-sizing: border-box }
+    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--text); background:var(--bg) }
+    .wrap { max-width:820px; margin:40px auto; padding:0 16px }
+    h1 { margin:0 0 16px; font-size:clamp(1.6rem,2.5vw+1rem,2.2rem) }
+
+    .card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+            box-shadow:var(--shadow); padding:20px; margin-bottom:16px }
+
+    /* Add form */
+    .grid { display:grid; grid-template-columns: 1fr 150px 150px auto; gap:12px; align-items:end }
+    label { display:block; font-weight:600; margin:0 0 6px }
+    input { width:100%; height:42px; border:1px solid var(--border); border-radius:10px; padding:0 12px }
+    .btn { height:42px; padding:0 16px; border-radius:10px; border:1px solid var(--primary); background:var(--primary); color:#fff; font-weight:600; cursor:pointer }
+    .btn:active { transform: translateY(1px) }
+
+    /* Meal list */
+    .meal-list { display:grid; grid-template-columns: 1fr; gap:10px }
+    .meal-item { display:flex; gap:10px; align-items:center }
+    .meal-btn { border:1px solid var(--border); background:#fff; border-radius:12px; padding:10px 16px;
+                font-weight:700; cursor:pointer; display:inline-block; text-decoration:none; color:inherit;}
+    .meta { color:var(--muted) }
+    @media (min-width: 600px) {
+      .meal-list { grid-template-columns: repeat(2, 1fr) }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Cook Book</h1>
+
+    <!-- Add form -->
+    <section class="card" aria-labelledby="add-title">
+      <h2 id="add-title" style="margin:0 0 12px; font-size:1.1rem; color:var(--muted)">Add a meal</h2>
+      <form action="/add_meal" method="post" class="grid" novalidate>
+        <div>
+          <label for="meal_name">Meal name</label>
+          <input id="meal_name" name="meal_name" placeholder="Hamburger" required>
+        </div>
+        <div>
+          <label for="prep_time">Prep (min)</label>
+          <input id="prep_time" name="prep_time" type="number" min="0" placeholder="10">
+        </div>
+        <div>
+          <label for="cook_time">Cook (min)</label>
+          <input id="cook_time" name="cook_time" type="number" min="0" placeholder="15">
+        </div>
+        <div>
+          <button class="btn" type="submit">Add</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Meal list -->
+    <section class="card" aria-labelledby="list-title">
+      <h2 id="list-title" style="margin:0 0 12px; font-size:1.1rem; color:var(--muted)">Your Meals</h2>
+      {% if meals %}
+        <div class="meal-list">
+          {% for m in meals %}
+            <div class="meal-item">
+              <a class="meal-btn" href="{{url_for('meal_detail_idx',idx=loop.index0)}}">{{m.name}}</a>
+              <span class="meta">Prep {{ m.prep or 0 }}m • Cook {{ m.cook or 0 }}m</span>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="meta">No meals yet. Add your first one above.</p>
+      {% endif %}
+    </section>
+  </main>
+</body>
+</html>

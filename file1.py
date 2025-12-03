@@ -1,4 +1,5 @@
-from flask import Flask,render_template,request,redirect,url_for
+from flask import Flask,render_template,request,redirect,url_for,flash
+from werkzeug.utils import secure_filename
 import csv
 from pathlib import Path
 
@@ -11,10 +12,19 @@ CSV_PATH = Path(__file__).parent / "data/meals.csv"
 CSV_HEADERS = ["name","prep","cook"]
 # === Recipe CSV (idx -> recipe text) ===
 RECIPES_CSV = DATA_DIR / "recipes.csv"
-RECIPES_HEADERS = ["idx", "recipe"]
+RECIPES_HEADERS = ["idx", "recipe", "photo"]
 #photo directory goes here
 PHOTOS_DIR=Path("photos")
+###################################
+BASE_DIR = Path(__file__).parent.resolve()
+UPLOAD_DIR = BASE_DIR / "static" / "uploads"
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+app.config["UPLOAD_FOLDER"] = str(UPLOAD_DIR)
+app.config["MAX_CONTENT_LENGTH"] = 10 * 1024 * 1024  # 10 MB
 
+ALLOWED = {"png", "jpg", "jpeg", "gif", "webp"}
+
+###############################
 @app.route("/")
 def index():
     return render_template("index.html",message="Welcome. Please enter your username and password.")
@@ -90,7 +100,7 @@ def load_recipe(idx: int) -> str:
     print(recipe)
     return recipe
 #This will save the recipe
-def save_recipe(idx: int, text: str):
+def save_recipe(idx: int, text: str, photo:str):
     """Overwrite/insert one row for this idx."""
     #ensure_recipes_csv()
     rows = []
@@ -99,8 +109,12 @@ def save_recipe(idx: int, text: str):
     with RECIPES_CSV.open("r", newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            if row.get("idx") == str(idx):
+            if row.get("idx") == str(idx) and text !=None:
                 rows.append({"idx": str(idx), "recipe": text})
+                found = True
+#leaving off here for thanksgiving
+            if row.get("idx") == str(idx) and photo !=None:
+                rows.append({"idx": str(idx), "photo": photo})
                 found = True
             else:
                 rows.append(row)
@@ -111,7 +125,7 @@ def save_recipe(idx: int, text: str):
         for r in rows:
             writer.writerow(r)
         if not found:
-            writer.writerow({"idx": str(idx), "recipe": text})
+            writer.writerow({"idx": str(idx), "recipe": text, "photo": photo})
 
 #saves recipes on the meal_detail pages
 @app.route("/meal/i/<int:idx>/recipe", methods=["POST"])
@@ -119,13 +133,32 @@ def meal_save_recipe(idx):
     if not (0 <= idx < len(MEALS)):
         return "Meal not found", 404
     text = (request.form.get("recipe") or "").strip()
-    save_recipe(idx, text)
+    save_recipe(idx, text, photo=None)
     return redirect(url_for("meal_detail_idx", idx=idx))
 #add photos
-@app.route("/meal/i/<int:idx>/photo", methods=["POST"])
-def save_photo(idx):
-    print("this is save photos")
+#######################################
+def allowed_file(filename: str) -> bool:
+    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED
 
+@app.route("/meal/i/<int:idx>/photo", methods=["POST"])
+def meal_save_photo(idx):
+    print("this is save photos")
+    f = request.files.get("image")
+    if not f or f.filename == "":
+        flash("Please choose an image.")
+        return redirect(url_for("form"))
+    if not allowed_file(f.filename):
+        flash("Only image files are allowed.")
+        return redirect(url_for("form"))
+
+    filename = secure_filename(f.filename)
+    f.save(UPLOAD_DIR / filename)
+    image_url = url_for("static", filename=f"uploads/{filename}")
+    print(filename)
+    save_recipe(idx,text=None,photo=filename)
+    return render_template("meal_detail.html", meal=MEALS,idx=idx,image_url=image_url, filename=filename)
+
+#####################################
 #add meals to cookbook?
 def load_meals():
   #  ensure_csv()

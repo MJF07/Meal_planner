@@ -43,11 +43,14 @@
         {% endif %}
       </div>
       <div style="margin-top:10px; display:flex; gap:8px">
-      <form action="{{ url_for('save_photo',idx=idx) }}" method="post">
-      <button class="btn" type="submit">Add Image</button>
-
+      <form action="{{ url_for('meal_save_photo',idx=idx) }}" method="post">
+      </form>
       </div>
-    </form>
+
+      <form method="post" action="{{ url_for('meal_save_photo',idx=idx) }}" enctype="multipart/form-data">
+  <input type="file" name="image" accept="image/*" required>
+  <button type="submit">Upload</button>
+</form>
     </section>
 
     <section class="card">

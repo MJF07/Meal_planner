@@ -5,14 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3171d89b-5c71-4a75-b707-1e6401bbf943" name="Changes" comment="this is my second commit">
-      <change afterPath="$PROJECT_DIR$/data/reviews.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/meals.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/meals.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/plans.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/plans.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/recipes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/recipes.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file1.py" beforeDir="false" afterPath="$PROJECT_DIR$/file1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cookbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cookbook.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/meal_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/meal_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/meal_plan.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/meal_plan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/recipes.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file1.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/TestTapeSquare.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/meal_plan_old.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/meal_requests.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile-rating-edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile-rating.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates_VOID/Dummy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates_VOID/account.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates_VOID/account_create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates_VOID/confirmation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates_VOID/cookbook.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates_VOID/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates_VOID/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates_VOID/meal_plan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates_VOID/meal_requests.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/old_users.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,22 +64,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.file1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.file2.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ma_fr/git2/Meal_planner/templates&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.file1.executor": "Run",
+    "Python.file2.executor": "Run",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/ma_fr/git2/Meal_planner/templates",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ma_fr\git2\Meal_planner\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ma_fr\git2\Meal_planner\data" />
       <recent name="C:\Users\ma_fr\git2\Meal_planner\templates" />
     </key>
   </component>
@@ -175,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764780880964</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="this is my second commit">
+      <option name="closed" value="true" />
+      <created>1765986728750</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1765986728750</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="UnknownFeatures">

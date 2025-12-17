@@ -5,34 +5,72 @@
   <title>{{ meal.name }} • Meal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    :root { --bg:#f7f7f8; --card:#fff; --text:#0f172a; --muted:#475569; --border:#e5e7eb; --radius:14px; --shadow:0 6px 18px rgba(0,0,0,.06); --primary:#2563eb; }
-    * { box-sizing: border-box }
-    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--text); background:var(--bg) }
+    :root {
+      --bg:#f7f7f8; --card:#fff; --text:#0f172a; --muted:#475569; --border:#e5e7eb;
+      --radius:14px; --shadow:0 6px 18px rgba(0,0,0,.06); --primary:#2563eb;
+    }
+    * { box-sizing:border-box }
+    html, body { margin:0; height:100% }
+    body {
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text); background:var(--bg);
+    }
     .wrap { max-width:820px; margin:40px auto; padding:0 16px }
-    .card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin-bottom:16px }
-    .top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px }
+    .card {
+      background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:20px; margin-bottom:16px;
+    }
+    .top {
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; margin-bottom:10px;
+    }
     .back { text-decoration:none; color:var(--primary); font-weight:600 }
     h1 { margin:0; font-size:clamp(1.6rem,2.5vw+1rem,2.2rem) }
     .meta { color:var(--muted) }
 
     .hero {
-      width:100%; aspect-ratio: 16 / 9; border:1px dashed var(--border); border-radius:12px;
-      display:grid; place-items:center; background:#fff; overflow:hidden;
+      width:100%; aspect-ratio:16 / 9; border:1px dashed var(--border);
+      border-radius:12px; display:grid; place-items:center; background:#fff; overflow:hidden;
     }
     .hero img { width:100%; height:100%; object-fit:cover; display:block }
     .placeholder { color:var(--muted); font-size:.95rem }
 
-    article.recipe { line-height:1.6 }
-    article.recipe pre { white-space: pre-wrap; font-family: ui-sans-serif, system-ui, sans-serif; }
+    label { display:block; font-weight:600; margin:12px 0 6px }
+    textarea, input, select {
+      width:100%; border:1px solid var(--border); border-radius:10px; padding:10px;
+      font:14px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    textarea { min-height:140px }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      height:42px; padding:0 16px; font-weight:600; border-radius:10px;
+      border:1px solid var(--primary); background:var(--primary); color:#fff; cursor:pointer;
+    }
+    .btn:active { transform:translateY(1px) }
+    .link-btn {
+      text-decoration:none; color:var(--primary); font-weight:600;
+    }
+
+    .review { padding:12px 0; border-top:1px solid var(--border) }
+    .stars { font-weight:700 }
+    .muted { color:var(--muted) }
   </style>
 </head>
 <body>
   <main class="wrap">
+
+    <!-- Top bar (back + prep/cook + avg rating) -->
     <div class="top">
       <a class="back" href="{{ url_for('meals') }}">&larr; Back to meals</a>
-      <div class="meta">Prep {{ meal.prep or 0 }}m • Cook {{ meal.cook or 0 }}m</div>
+      <div class="meta">
+        Prep {{ meal.prep or 0 }}m • Cook {{ meal.cook or 0 }}m
+        {% if avg %}
+          • Avg rating: <strong>{{ avg }}/5</strong>
+        {% endif %}
+      </div>
     </div>
 
+    <!-- Meal info + image upload -->
     <section class="card">
       <h1>{{ meal.name }}</h1>
       <div class="hero" aria-label="Meal image">
@@ -42,31 +80,79 @@
           <div class="placeholder">No image yet</div>
         {% endif %}
       </div>
-      <div style="margin-top:10px; display:flex; gap:8px">
-      <form action="{{ url_for('meal_save_photo',idx=idx) }}" method="post">
-      </form>
-      </div>
 
-      <form method="post" action="{{ url_for('meal_save_photo',idx=idx) }}" enctype="multipart/form-data">
-  <input type="file" name="image" accept="image/*" required>
-  <button type="submit">Upload</button>
-</form>
+      <form method="post"
+            action="{{ url_for('meal_save_photo', idx=idx) }}"
+            enctype="multipart/form-data"
+            style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap">
+        <input type="file" name="image" accept="image/*" required>
+        <button class="btn" type="submit">Upload photo</button>
+      </form>
     </section>
 
+    <!-- Recipe editor -->
     <section class="card">
-  <h2 style="margin:0 0 12px; font-size:1.1rem; color:var(--muted)">Recipe</h2>
-  <form action="{{ url_for('meal_save_recipe', idx=idx) }}" method="post">
-    <label for="recipe" style="display:block; font-weight:600; margin:0 0 6px">Edit recipe</label>
-    <textarea id="recipe" name="recipe" rows="12" style="
-      width:100%; border:1px solid var(--border); border-radius:10px; padding:12px;
-      font: 14px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">
-{{ recipe_text }}</textarea>
-    <div style="margin-top:10px; display:flex; gap:8px">
-      <button class="btn" type="submit">Save</button>
-      <a class="back" href="{{ url_for('meals') }}" style="align-self:center; text-decoration:none">Cancel</a>
-    </div>
-  </form>
-</section>
+      <h2 style="margin:0 0 12px; font-size:1.1rem; color:var(--muted)">Recipe</h2>
+      <form action="{{ url_for('meal_save_recipe', idx=idx) }}" method="post">
+        <label for="recipe">Edit recipe</label>
+        <textarea id="recipe" name="recipe" rows="12">{{ recipe_text }}</textarea>
+        <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap">
+          <button class="btn" type="submit">Save</button>
+          <a class="link-btn" href="{{ url_for('meals') }}">Cancel</a>
+        </div>
+      </form>
+    </section>
+
+    <!-- Reviews: average + list, THEN submit form -->
+    <section class="card">
+      <h2 style="margin:0 0 8px; font-size:1.1rem; color:var(--muted)">Reviews</h2>
+
+      <p class="muted" style="margin:0 0 12px;">
+        Overall rating: <strong>{{ avg }}/5</strong>
+        ({{ reviews|length }} review{{ '' if reviews|length == 1 else 's' }})
+      </p>
+
+      <!-- Existing reviews first -->
+      {% if reviews %}
+        {% for r in reviews|reverse %}
+          <div class="review">
+            <div class="stars">★ {{ r['rating'] }}/5</div>
+            <div class="muted" style="margin:2px 0 6px">{{ r['name'] or "Anonymous" }}</div>
+            <div>{{ r['comment'] }}</div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="muted" style="margin-bottom:12px;">
+          No reviews yet—be the first to add one!
+        </p>
+      {% endif %}
+
+      <hr style="margin:16px 0; border:none; border-top:1px solid var(--border);" />
+
+      <!-- Add review form underneath -->
+      <h3 style="margin:0 0 8px; font-size:1rem; color:var(--muted)">Add your review</h3>
+      <form method="post" action="{{ url_for('meal_add_review', idx=idx) }}">
+        <label for="name">Your name</label>
+        <input id="name" name="name" placeholder="e.g., Alex">
+
+        <label for="rating">Star rating (1–5)</label>
+        <select id="rating" name="rating" required>
+          <option value="" disabled selected>Select…</option>
+          <option>5</option>
+          <option>4</option>
+          <option>3</option>
+          <option>2</option>
+          <option>1</option>
+        </select>
+        <label for="comment">Comment</label>
+        <textarea id="comment" name="comment" placeholder="What did you think?"></textarea>
+
+        <div style="margin-top:12px">
+          <button class="btn" type="submit">Submit review</button>
+        </div>
+      </form>
+    </section>
+
   </main>
 </body>
 </html>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3171d89b-5c71-4a75-b707-1e6401bbf943" name="Changes" comment="this is my second commit">
+      <change afterPath="$PROJECT_DIR$/data/reviews.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/meals.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/meals.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/plans.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/plans.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/recipes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/recipes.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file1.py" beforeDir="false" afterPath="$PROJECT_DIR$/file1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cookbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cookbook.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/meal_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/meal_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/meal_plan.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/meal_plan.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MJF07&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MJF07/Meal_planner.git&quot;,
+    &quot;accountId&quot;: &quot;cbbf7986-ef62-4c6b-a4fb-706f805a56ed&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="32VugCul9FJeAs6H4Xpzxeg2hlg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.file1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.file2.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ma_fr/git2/Meal_planner/templates&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ma_fr\git2\Meal_planner\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ma_fr\git2\Meal_planner\templates" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-abccbe9d933a-ba05f1cad1b1-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.20224.428" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3171d89b-5c71-4a75-b707-1e6401bbf943" name="Changes" comment="" />
+      <created>1757518169218</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1757518169218</updated>
+    </task>
+    <task id="LOCAL-00001" summary="this is my readme">
+      <option name="closed" value="true" />
+      <created>1757519862110</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1757519862110</updated>
+    </task>
+    <task id="LOCAL-00002" summary="this is my first commit">
+      <option name="closed" value="true" />
+      <created>1757519967933</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1757519967933</updated>
+    </task>
+    <task id="LOCAL-00003" summary="this is my first commit">
+      <option name="closed" value="true" />
+      <created>1757521607824</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1757521607824</updated>
+    </task>
+    <task id="LOCAL-00004" summary="this is my second commit">
+      <option name="closed" value="true" />
+      <created>1758304791518</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1758304791518</updated>
+    </task>
+    <task id="LOCAL-00005" summary="this is my second commit">
+      <option name="closed" value="true" />
+      <created>1759276069491</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1759276069491</updated>
+    </task>
+    <task id="LOCAL-00006" summary="this is my second commit">
+      <option name="closed" value="true" />
+      <created>1759941038731</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1759941038731</updated>
+    </task>
+    <task id="LOCAL-00007" summary="this is my second commit">
+      <option name="closed" value="true" />
+      <created>1760237327319</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1760237327319</updated>
+    </task>
+    <task id="LOCAL-00008" summary="this is my second commit">
+      <option name="closed" value="true" />
+      <created>1760544020001</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1760544020001</updated>
+    </task>
+    <task id="LOCAL-00009" summary="this is my second commit">
+      <option name="closed" value="true" />
+      <created>1762963297051</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1762963297051</updated>
+    </task>
+    <task id="LOCAL-00010" summary="this is my second commit">
+      <option name="closed" value="true" />
+      <created>1762963410934</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1762963410934</updated>
+    </task>
+    <task id="LOCAL-00011" summary="this is my second commit">
+      <option name="closed" value="true" />
+      <created>1764780880964</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1764780880964</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="this is my readme" />
+    <MESSAGE value="this is my first commit" />
+    <MESSAGE value="this is my second commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="this is my second commit" />
+  </component>
+</project>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -6,133 +6,198 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #f7f7f8;
-      --card: #fff;
-      --text: #0f172a;
-      --muted: #475569;
-      --border: #e5e7eb;
-      --radius: 14px;
-      --shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-      --primary: #2563eb;
-      --accent: #22c55e;
+      --bg:#f7f7f8; --card:#fff; --text:#0f172a; --muted:#475569; --border:#e5e7eb;
+      --radius:14px; --shadow:0 6px 18px rgba(0,0,0,.06); --primary:#2563eb;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing:border-box }
+    html,body { margin:0; height:100% }
     body {
-      margin: 0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text); background:var(--bg);
     }
+    .wrap { max-width:820px; margin:40px auto; padding:0 16px }
 
-    main.wrap {
-      max-width: 820px;
-      margin: 40px auto;
-      padding: 0 16px;
+    header {
+      display:flex; justify-content:space-between; align-items:center;
+      margin-bottom:16px; gap:12px;
     }
-
-    h1 {
-      margin: 0 0 20px;
-      font-size: clamp(1.8rem, 2vw + 1rem, 2.4rem);
-      text-align: center;
-    }
+    h1 { margin:0; font-size:clamp(1.6rem,2.5vw+1rem,2.2rem) }
+    .nav a { text-decoration:none; color:var(--primary); margin-left:12px; font-weight:600 }
 
     .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 24px;
-      margin-bottom: 20px;
+      background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:20px; margin-bottom:16px;
     }
+    h2 { margin:0 0 12px; font-size:1.1rem; color:var(--muted) }
+    .muted { color:var(--muted); font-size:0.9rem }
 
-    .card h2 {
-      margin: 0 0 12px;
-      font-size: 1.2rem;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    /* Buttons */
-    .button-group {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      margin-top: 20px;
-    }
+    table { width:100%; border-collapse:collapse; margin-top:8px }
+    th, td { padding:8px 4px; text-align:left; font-size:0.95rem; vertical-align:top }
+    th { border-bottom:1px solid var(--border); color:var(--muted); font-weight:600 }
+    tr:nth-child(even) td { background:#f9fafb }
+    .checkbox-cell { width:40px; text-align:center }
 
     .btn {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      border: 1px solid var(--primary);
-      border-radius: 10px;
-      padding: 12px 20px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      text-align: center;
-      width: 220px;
-      transition: all 0.2s ease;
+      display:inline-flex; align-items:center; justify-content:center;
+      height:32px; padding:0 10px; font-size:0.85rem;
+      font-weight:600; border-radius:10px;
+      border:1px solid var(--primary); background:var(--primary); color:#fff; cursor:pointer;
+    }
+    .btn:active { transform:translateY(1px) }
+
+    .btn-ghost {
+      display:inline-flex; align-items:center; justify-content:center;
+      height:28px; padding:0 8px; font-size:0.8rem;
+      border-radius:999px; border:1px solid var(--border);
+      background:#fff; color:var(--muted); cursor:pointer;
+      margin:2px 0;
+    }
+    .btn-ghost span { margin-left:4px; }
+
+    /* Scroll only inside the cookbook list */
+    .cookbook-scroll {
+      max-height:260px;
+      overflow-y:auto;
+      margin-top:8px;
     }
 
-    .btn:hover {
-      background: #1e40af;
+    /* Scroll inside the weekly plan if it grows tall */
+    .plan-scroll {
+      max-height:260px;
+      overflow-y:auto;
+      margin-top:8px;
     }
-
-    .btn-accent {
-      background: var(--accent);
-      border-color: var(--accent);
+    .meal-btn{
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:600;
     }
-
-    .btn-accent:hover {
-      background: #16a34a;
+    .meal-btn:hover{
+      text-decoration:underline;
     }
-
-    /* Weekly plan box */
-    .week-plan {
-      text-align: left;
-      font-size: 1rem;
-      line-height: 1.8;
-      color: var(--muted);
-      white-space: pre-line;
-    }
-
-    .week-plan strong {
-      color: var(--text);
-    }
-  </style>
+      </style>
 </head>
 <body>
   <main class="wrap">
-    <h1>Meal Plan</h1>
-    <h2>Cook Book</h2>
-      <iframe src="/about" width="800" height="600"></iframe>
-    <section class="card">
-      <h2>Week of 12/17</h2>
-      <div class="week-plan">
-        <strong>Mon</strong><br><br>
-        <strong>Tues</strong><br><br>
-        <strong>Wed</strong><br><br>
-        <strong>Thurs</strong><br><br>
-        <strong>Fri</strong><br><br>
-        <strong>Sat</strong><br><br>
-        <strong>Sun</strong>
-      </div>
-    </section>
+    <header>
+      <h1>Meal Plan</h1>
+      <nav class="nav">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('meals') }}">Cookbook</a>
+      </nav>
+    </header>
 
-    <section class="card">
-      <h2>Recommendations</h2>
-      <div class="button-group">
-        <button class="btn">Home</button>
-        <button class="btn">Add Plan</button>
-      </div>
-    </section>
+    <!-- One form for everything so checkboxes + buttons submit together -->
+    <form method="post" action="{{ url_for('meal_plan') }}">
+
+      <!-- Cookbook with scroll -->
+      <section class="card">
+        <h2>Cookbook</h2>
+        <p class="muted">Check one or more meals. Then use the buttons below to add the selected meals into the weekly plan.</p>
+
+        <div class="cookbook-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th class="checkbox-cell"></th>
+                <th>Meal</th>
+                <th>Prep (min)</th>
+                <th>Cook (min)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if meals %}
+                {% for m in meals %}
+                  <tr>
+                    <td class="checkbox-cell">
+                      <input type="checkbox" name="selected_meals" value="{{ loop.index0 }}">
+                    </td>
+                    <td><a class="meal-btn" href="{{url_for('meal_detail_idx',idx=loop.index0)}}">{{m.name}}</a></td>
+                    <td>{{ m.prep or '0' }}</td>
+                    <td>{{ m.cook or '0' }}</td>
+                  </tr>
+                {% endfor %}
+              {% else %}
+                <tr>
+                  <td colspan="4" class="muted">No meals in the cookbook yet.</td>
+                </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- This Week's Plan: lunch + dinner with Add / Remove buttons -->
+      <section class="card">
+        <h2>This Week’s Plan</h2>
+        <p class="muted">
+          Click <strong>Add selected</strong> under Lunch or Dinner to add the checked cookbook meals to that slot.
+          You can have multiple meals in each slot and remove them later.
+        </p>
+
+        <div class="plan-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Lunch</th>
+                <th>Dinner</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for day, slots in weekly_plan.items() %}
+                <tr>
+                  <td>{{ day }}</td>
+
+                  <!-- Lunch cell -->
+                  <td>
+                    {% if slots.lunch %}
+                      {% for idx, name in slots.lunch %}
+                        <button class="btn-ghost" type="submit"
+                                name="action"
+                                value="remove:{{ day }}:lunch:{{ idx }}">
+                          ✕ <span>{{ name }}</span>
+                        </button><br>
+                      {% endfor %}
+                    {% else %}
+                      <span class="muted">–</span><br>
+                    {% endif %}
+                    <!-- Add button for this day/slot -->
+                    <button class="btn" type="submit"
+                            name="action"
+                            value="add:{{ day }}:lunch">
+                      Add selected
+                    </button>
+                  </td>
+
+                  <!-- Dinner cell -->
+                  <td>
+                    {% if slots.dinner %}
+                      {% for idx, name in slots.dinner %}
+                        <button class="btn-ghost" type="submit"
+                                name="action"
+                                value="remove:{{ day }}:dinner:{{ idx }}">
+                          ✕ <span>{{ name }}</span>
+                        </button><br>
+                      {% endfor %}
+                    {% else %}
+                      <span class="muted">–</span><br>
+                    {% endif %}
+                    <!-- Add button for this day/slot -->
+                    <button class="btn" type="submit"
+                            name="action"
+                            value="add:{{ day }}:dinner">
+                      Add selected
+                    </button>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </form>
   </main>
 </body>
 </html>
-
